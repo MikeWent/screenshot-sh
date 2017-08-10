@@ -20,7 +20,6 @@ display_help () {
 }
 
 generate_khotkeys () {
-    user=$(whoami)
     template="
 [Data]
 DataCount=1
@@ -146,7 +145,7 @@ AllowMerge=false
 ImportId=screenshot-sh
 Version=2
 "
-    echo "$template" | sed -e "s/USERNAME/$user/g" > screenshot-sh.khotkeys
+    echo "$template" | sed -e "s/USERNAME/$USER/g" > screenshot-sh.khotkeys
     echo "Generated screenshot-sh.khotkeys"
 }
 
