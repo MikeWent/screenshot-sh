@@ -20,7 +20,7 @@ display_help () {
 }
 
 generate_khotkeys () {
-    template="
+    cat <<KHOTKEYS > screenshot-sh.khotkeys
 [Data]
 DataCount=1
 
@@ -46,7 +46,7 @@ Type=SIMPLE_ACTION_DATA
 ActionsCount=1
 
 [Data_1_1Actions0]
-CommandURL=/home/USERNAME/.local/share/screenshot-sh/screenshot.sh --selection
+CommandURL=$HOME/.local/share/screenshot-sh/screenshot.sh --selection
 Type=COMMAND_URL
 
 [Data_1_1Conditions]
@@ -72,7 +72,7 @@ Type=SIMPLE_ACTION_DATA
 ActionsCount=1
 
 [Data_1_2Actions0]
-CommandURL=/home/USERNAME/.local/share/screenshot-sh/screenshot.sh --fullscreen
+CommandURL=$HOME/.local/share/screenshot-sh/screenshot.sh --fullscreen
 Type=COMMAND_URL
 
 [Data_1_2Conditions]
@@ -98,7 +98,7 @@ Type=SIMPLE_ACTION_DATA
 ActionsCount=1
 
 [Data_1_3Actions0]
-CommandURL=/home/USERNAME/.local/share/screenshot-sh/screenshot.sh --window
+CommandURL=$HOME/.local/share/screenshot-sh/screenshot.sh --window
 Type=COMMAND_URL
 
 [Data_1_3Conditions]
@@ -124,7 +124,7 @@ Type=SIMPLE_ACTION_DATA
 ActionsCount=1
 
 [Data_1_4Actions0]
-CommandURL=/home/USERNAME/.local/share/screenshot-sh/screenshot.sh --widow-borders
+CommandURL=$HOME/.local/share/screenshot-sh/screenshot.sh --widow-borders
 Type=COMMAND_URL
 
 [Data_1_4Conditions]
@@ -144,8 +144,7 @@ Uuid={7fdf9dad-6fe3-4f4e-b33d-d4b9a12fcc01}
 AllowMerge=false
 ImportId=screenshot-sh
 Version=2
-"
-    echo "$template" | sed -e "s/USERNAME/$USER/g" > screenshot-sh.khotkeys
+KHOTKEYS
     echo "Generated screenshot-sh.khotkeys"
 }
 
